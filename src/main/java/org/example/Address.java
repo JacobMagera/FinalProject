@@ -2,10 +2,12 @@ package org.example;
 
 import lombok.*;
 
-@Getter
-@Setter
+
 @EqualsAndHashCode
 @ToString
+@Getter
+@Setter
+
 public class Address {
     private int streetNo;
     private String street;
