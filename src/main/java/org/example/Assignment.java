@@ -13,5 +13,5 @@ public class Assignment {
     private int maxScore;
     private double assignmentAverage;
     private ArrayList<Integer> scores;
-    private static int nextId = 0;
+    private static int nextId = 1;
 }

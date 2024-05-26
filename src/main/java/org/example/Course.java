@@ -17,5 +17,5 @@ public class Course {
     private ArrayList<Assignment> assignments;
     private ArrayList<Student> registeredStudents;
     private ArrayList<Double> finalScores;
-    private static int nextId = 0;
+    private static int nextId = 1;
 }
