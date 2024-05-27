@@ -24,7 +24,7 @@ public class Assignment {
         this.weight = weight;
         this.maxScore = maxScore;
         this.scores = new ArrayList<>();
-        this.assignmentId = "A" + String.format("%04d", nextId++);
+        this.assignmentId = String.format("A%04d", nextId++);
         this.assignmentAverage = 0;
     }
 

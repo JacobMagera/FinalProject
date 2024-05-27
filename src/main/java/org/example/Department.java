@@ -12,6 +12,13 @@ public class Department {
     private String departmentName;
     private static int nextId = 1;
 
+    public Department(String departmentName) {
+        if (validateDepartmentName(departmentName)) {
+            this.departmentId = String.format("D%02d", nextId++);
+            this.departmentName = Util.toTitleCase(departmentName);
+        }
+    }
+
     /**
      * Checks if a department name is valid or not
      * @param departmentName input string
@@ -19,17 +26,12 @@ public class Department {
      */
     public static boolean validateDepartmentName(String departmentName) {
         for (int i = 0; i < departmentName.length(); i++) {
-            if (!Character.isDigit(departmentName.charAt(i)) && !Character.isAlphabetic(departmentName.charAt(i))) {
+            if (!Character.isDigit(departmentName.charAt(i)) &&
+                    !Character.isAlphabetic(departmentName.charAt(i)) &&
+                    departmentName.charAt(i) != ' ') {
                 return false;
             }
         }
         return true;
-    }
-
-    public Department(String departmentName) {
-        if (validateDepartmentName(departmentName)) {
-            this.departmentId = String.format("D%02d", nextId++);
-            this.departmentName = Util.toTitleCase(departmentName);
-        }
     }
 }
