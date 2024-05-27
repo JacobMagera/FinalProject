@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.util.Util;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
