@@ -1,12 +1,15 @@
 package org.example;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 @ToString
-
+@Getter
+@Setter
 public class Assignment {
     private String assignmentId;
     private String assignmentName;
@@ -15,6 +18,15 @@ public class Assignment {
     private double assignmentAverage;
     private ArrayList<Integer> scores;
     private static int nextId = 1;
+
+    public Assignment(String assignmentName, double weight, int maxScore) {
+        this.assignmentName = assignmentName;
+        this.weight = weight;
+        this.maxScore = maxScore;
+        this.scores = new ArrayList<>();
+        this.assignmentId = "A" + String.format("%04d", nextId++);
+        this.assignmentAverage = 0;
+    }
 
     public void calcAssignmentAvg() {
         int sum = 0;

@@ -28,7 +28,7 @@ public class Department {
     public Department(String departmentName) {
         if (validateDepartmentName(departmentName)) {
             this.departmentId = String.format("D%02d", nextId++);
-            this.departmentName = departmentName;
+            this.departmentName = Util.toTitleCase(departmentName);
         }
     }
 }

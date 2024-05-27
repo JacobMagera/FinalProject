@@ -20,7 +20,7 @@ public class Student {
     private static int nextId = 1;
 
     public Student(String studentName, Gender gender, Address address, Department department) {
-        this.studentName = studentName;
+        this.studentName = Util.toTitleCase(studentName);
         this.gender = gender;
         this.address = address;
         this.department = department;
@@ -54,15 +54,13 @@ public class Student {
         return true;
     }
 
+    public String toSimplifiedString() {
+        return String.format("%s: %s, %s", studentId, studentName, department.getDepartmentName());
+    }
+
     @Override
     public String toString() {
         return String.format("%s: %s, %s, %s, %s, Courses: %s",
                 studentId, studentName, gender, address, department, registeredCourses);
     }
-
-    public String toSimplifiedString() {
-        return String.format("%s: %s, %s", studentId, studentName, department.getDepartmentName());
-    }
-
-
 }
