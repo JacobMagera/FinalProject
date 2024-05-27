@@ -1,6 +1,13 @@
 package org.example.util;
 
 public class Util {
+
+    /**
+     * Converts each word in a String to title case (i.e. Yi Wang, Computer Science)
+     * assuming that there are two words with a space in between.
+     * @param strIn the input String
+     * @return the String with both words set to title case.
+     */
     public static String toTitleCase(String strIn) {
         if (strIn == null || strIn.isEmpty()) {
             return strIn;

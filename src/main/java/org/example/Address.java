@@ -16,6 +16,17 @@ public class Address {
     private String postalCode;
     private String country;
 
+    public Address(int streetNo, String street, String city, String province, String postalCode, String country) {
+        if (isPostalCodeValid(postalCode)) {
+            this.streetNo = streetNo;
+            this.street = street;
+            this.city = city;
+            this.province = province;
+            this.postalCode = postalCode.toUpperCase();
+            this.country = country;
+        }
+    }
+
     /**
      * Checks if a postcode is valid or not
      * @param postalCode input string
@@ -41,16 +52,5 @@ public class Address {
         }
 
         return false;
-    }
-
-    public Address(int streetNo, String street, String city, String province, String postalCode, String country) {
-        if (isPostalCodeValid(postalCode)) {
-            this.streetNo = streetNo;
-            this.street = street;
-            this.city = city;
-            this.province = province;
-            this.postalCode = postalCode.toUpperCase();
-            this.country = country;
-        }
     }
 }

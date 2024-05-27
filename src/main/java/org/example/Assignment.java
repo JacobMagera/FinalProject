@@ -7,7 +7,6 @@ import lombok.ToString;
 import java.util.ArrayList;
 import java.util.Random;
 
-@ToString
 @Getter
 @Setter
 public class Assignment {
@@ -28,6 +27,9 @@ public class Assignment {
         this.assignmentAverage = 0;
     }
 
+    /**
+     * Calculates the average score for one assignment.
+     */
     public void calcAssignmentAvg() {
         int sum = 0;
         int count = 0;
@@ -40,6 +42,16 @@ public class Assignment {
         this.assignmentAverage = count == 0 ? 0 : (double) sum / count;
     }
 
+    /**
+     * generates random scores for all students in an assignment, the scores are generated with the following rule:
+     * Firstly generates a random number in range [0, 10], then
+     *
+     * if the number is 0, then generates a random score in range [0, 60) for the student
+     * if the number is 1, 2, then generates a random score in range [60, 70) for the student
+     * if the number is 3, 4, then generates a random score in range [70, 80) for the student
+     * if the number is 5, 6, 7, 8, then generates a random score in range [80, 90) for the student
+     * if the number is 9, 10, then generates a random score in range [90, 100] for the student
+     */
     public void generateRandomScore() {
         Random rand = new Random();
         for (int i = 0; i < scores.size(); i++) {
@@ -58,5 +70,13 @@ public class Assignment {
             }
             scores.set(i, score);
         }
+    }
+
+    /**
+     ** Generates a string to represent an assignment, with assignmentId, assignmentName, weight and maxScore.
+     */
+    public String toString() {
+        return String.format("Assignment(Assignment Id: %s, Assignment Name: %s, Weight: %.1f, Max Score: %d)",
+                assignmentId, assignmentName, weight, maxScore);
     }
 }

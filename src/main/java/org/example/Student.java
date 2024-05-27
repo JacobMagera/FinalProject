@@ -29,6 +29,14 @@ public class Student {
         this.registeredCourses = new ArrayList<>();
     }
 
+    /**
+     *  registers a course, this method
+     *  (1) adds the course to the student's registeredCourses list,
+     *  (2) adds the student to the course's registeredStudents list,
+     *  (3) appends a null for the scores of each assignment of the course.
+     * @param course the input course
+     * @return False if the course is already registered, True otherwise.
+     */
     public boolean registerCourse(Course course) {
         if (registeredCourses.contains(course)) {
             return false;
@@ -42,6 +50,12 @@ public class Student {
         return true;
     }
 
+    /**
+     * drops a course, remove the course from the student's registeredCourses list,
+     * and remove the student from the course's registeredStudents list.
+     * @param course the input course
+     * @return False if the course is not yet registered, True otherwise.
+     */
     public boolean dropCourse(Course course) {
         if (!registeredCourses.contains(course)) {
             return false;
@@ -55,6 +69,10 @@ public class Student {
         return true;
     }
 
+    /**
+     * Converts a student to a simple String with only the studentId, the studentName, and departmentName.
+     * @return the simple String.
+     */
     public String toSimplifiedString() {
         return String.format("%s: %s, %s", studentId, studentName, department.getDepartmentName());
     }
